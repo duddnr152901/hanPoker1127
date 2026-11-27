@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한게임포커 × 피카플레이 이벤트</title>
+<meta name="description" content="한게임포커 플레이하고, 최대 18,000M 받자! 한게임포커 플레이하고 미션을 달성하면 PC방에서 사용 가능한 마일리지를 드려요!">
+
+<!-- Open Graph — [BACKEND] 배포 URL / 썸네일(800x400, 1200x630) 확정 후 교체 -->
+<meta property="og:site_name" content="피카플레이">
+<meta property="og:title" content="한게임포커 × 피카플레이 이벤트">
+<meta property="og:description" content="한게임포커 플레이하고, 최대 18,000M 받자!">
+<meta property="og:url" content="">
+<meta property="og:image" content="assets/Thumbnail_800x400.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="한게임포커 × 피카플레이 이벤트">
+<meta name="twitter:description" content="한게임포커 플레이하고, 최대 18,000M 받자!">
+<meta name="twitter:image" content="assets/Thumbnail_1200x630.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<!-- 숫자·쉼표 전용 Roboto (text= 서브셋: 0-9 , 만 포함) -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&text=0123456789%2C&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400..1000&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100..700,0,0&icon_names=check_circle_unread,poker_chip&display=block" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=1127e">
+</head>
+<body>
+
+<!-- ===== 공통 헤더 (PC방 토글 + 공지 + 공유하기) ===== -->
+<header class="cb-header" id="top">
+  <div class="cb-header__inner">
+    <div class="cb-header__notice-wrap">
+      <!-- PC방 토글 — assets/js/share.js의 setPcRoomToggleState()가 이미지를 교체 -->
+      <button class="toggle-btn" type="button" id="pcRoomToggle" data-state="off" aria-label="PC방 모드 토글">
+        <img class="toggle-btn__img" src="assets/off=off.webp" alt="PC방 모드 OFF">
+      </button>
+      <p class="cb-header__notice">
+        본 이벤트는 <a href="https://picaplay.com/pcbang/main.do" target="_blank" rel="noopener noreferrer"><u>피카플레이 가맹 PC방</u></a>에서 참여 가능합니다.
+      </p>
+    </div>
+    <button class="btn-share" type="button" id="btnShare" aria-label="공유하기">
+      <img src="assets/share_icon.svg" alt="">
+      <span>공유하기</span>
+    </button>
+  </div>
+</header>
+
+<main>
+<!-- ===== KV (연기 전환 없이 일반 스크롤) ===== -->
+<section class="kv" id="kv">
+  <h1 class="sr-only">한게임포커 × 피카플레이 이벤트</h1>
+  <div class="kv__visual">
+    <div class="kv__stage" id="kvStage">
+      <div class="kvl kvl--bg" data-depth="0.15"><div class="kvl__in"><img src="assets/images/kv_bg.webp" alt="당신의 가슴을 뛰게 만드는 짜릿한 한 판, 한게임포커" data-kvw="bg" data-kvw-label="배경" fetchpriority="high"></div></div>
+      <div class="kvl kvl--orbs" data-depth="0.25"><div class="kvl__in"><canvas id="kvOrbs" aria-hidden="true"></canvas></div></div>
+      <div class="kvl kvl--card2" data-depth="0.5"><div class="kvl__in"><img src="assets/images/kv_card2.webp" alt="" data-kvw="card2" data-kvw-label="카드2"></div></div>
+      <div class="kvl kvl--card3" data-depth="0.6"><div class="kvl__in"><img src="assets/images/kv_card3.webp" alt="" data-kvw="card3" data-kvw-label="카드3"></div></div>
+      <div class="kvl kvl--card1" data-depth="0.9"><div class="kvl__in"><img src="assets/images/kv_card1.webp" alt="" data-kvw="card1" data-kvw-label="카드1"></div></div>
+      <div class="kvl kvl--card6" data-depth="0.7"><div class="kvl__in"><img src="assets/images/kv_card6.webp" alt="" data-kvw="card6" data-kvw-label="카드6"></div></div>
+      <div class="kvl kvl--char" data-depth="0.35"><div class="kvl__in"><img src="assets/images/kv_char.webp" alt="" data-kvw="char" data-kvw-label="캐릭터"></div></div>
+      <div class="kvl kvl--card5" data-depth="1.1"><div class="kvl__in"><img src="assets/images/kv_card5.webp" alt="" data-kvw="card5" data-kvw-label="카드5"></div></div>
+      <div class="kvl kvl--card4" data-depth="1"><div class="kvl__in"><img src="assets/images/kv_card4.webp" alt="" data-kvw="card4" data-kvw-label="카드4"></div></div>
+      <div class="kvl kvl--blurcard" data-depth="1.5"><div class="kvl__in"><img src="assets/images/kv_card1.webp" alt="" data-kvw="blurcard" data-kvw-label="블러 카드"></div></div>
+      <div class="kvl kvl--table" data-depth="0.55"><div class="kvl__in"><img src="assets/images/kv_table.webp" alt="" data-kvw="table" data-kvw-label="테이블"></div></div>
+    </div>
+    <img class="kv__flat" src="assets/images/kv_m.webp" alt="당신의 가슴을 뛰게 만드는 짜릿한 한 판, 한게임포커" data-kvw="mo" data-kvw-label="모바일 KV">
+  </div>
+  <div class="kv__lockup">
+    <p class="kv__eyebrow kv__eyebrow--logos"><img class="kv__logo kv__logo--poker" src="assets/images/logo_poker.webp" alt="한게임포커"><span class="kv__x" aria-hidden="true">×</span><img class="kv__logo kv__logo--pica" src="assets/images/logo_pica.svg" alt="피카플레이"><span class="sr-only">이벤트</span></p>
+    <h2 class="kv__title kv__title--img"><img src="assets/images/kv_title.webp" alt="한게임포커 치고, 최대 18,000M 받자!" width="2065" height="588"><img class="kv__title-shine" src="assets/images/kv_title.webp" alt="" aria-hidden="true" width="2065" height="588"></h2>
+    <p class="kv__desc">한게임포커 플레이하고 미션을 달성하면<br>PC방에서 사용 가능한 마일리지를 드려요!</p>
+    <div class="kv__chips">
+      <!-- [운영] 오픈일 확정 후 기재 -->
+      <span class="kv__chip"><b>기간</b>2026년 12월 오픈 예정</span>
+      <span class="kv__chip"><b>대상</b>한게임포커 로비 최초 진입 대상 계정 한정</span>
+    </div>
+    <p class="kv__note">신규 가입 회원뿐 아니라, 기존 회원도 로비 최초 진입 대상이라면 참여할 수 있습니다.</p>
+  </div>
+</section>
+
+<!-- ===== STEP 01 / 02 ===== -->
+<section class="join" id="join" aria-label="이벤트 참여">
+  <canvas class="sec-sparkle" aria-hidden="true"></canvas>
+  <div class="inner join__grid reveal-group">
+    <!-- STEP 01 : data-state = guest | login | linked (같은 위치에서 전환) -->
+    <article class="join-card panel reveal" id="step1" data-state="guest">
+      <span class="badge-step">STEP 01</span>
+      <h3 class="join-card__title">피카플레이 로그인</h3>
+      <p class="join-card__desc">피카 PC방 좌석에서 피카플레이 회원으로<br class="forWeb"> 로그인해 주세요.</p>
+      <div class="join-card__action">
+        <div class="step1-state step1-state--guest">
+          <button type="button" class="btn btn--gold" data-action="login">피카플레이 로그인하기</button>
+        </div>
+        <div class="step1-state step1-state--login">
+          <span class="btn btn--done" role="status">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+            로그인 완료
+          </span>
+          <p class="step1-msg"><b>피카플레이 로그인 완료! 미션을 시작해 주세요.</b>아래 ‘한게임포커 접속하고 미션 시작하기’ 버튼을 눌러 주세요.</p>
+        </div>
+        <div class="step1-state step1-state--linked">
+          <span class="btn btn--done" role="status">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+            연동 완료
+          </span>
+          <p class="step1-msg"><b>최초 로비 진입 확인 완료! 미션 참여가 가능합니다.</b>각 미션을 달성하면 마일리지가 자동 지급됩니다.</p>
+        </div>
+        <p class="join-card__sub"><a href="https://blog.naver.com/playcraftbox/223126575684" target="_blank" rel="noopener noreferrer">피카플레이 연동방법 보기</a></p>
+      </div>
+    </article>
+
+    <!-- STEP 02 : 버튼은 모든 상태에서 유지 (본 페이지 버튼 경유 필수) -->
+    <article class="join-card panel reveal" id="step2">
+      <span class="badge-step">STEP 02</span>
+      <h3 class="join-card__title">한게임포커 접속 및<br class="mo-br">미션 시작</h3>
+      <p class="join-card__desc">반드시 아래 버튼을 통해 접속해야<br>미션 참여가 인정됩니다.</p>
+      <div class="join-card__action">
+        <a class="btn btn--magenta" href="https://poker.hangame.com/" target="_blank" rel="noopener noreferrer" data-action="start">
+          
+          한게임포커 접속하고 미션 시작하기
+        </a>
+        <p class="join-card__sub">회원가입 후 24시간 이내 대기실 입장 필수</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== MISSION ===== -->
+<section class="section section--mission" id="mission">
+  <canvas class="sec-sparkle" id="missionSparkle" aria-hidden="true"></canvas>
+  <img class="deco-blurcard" src="assets/images/kv_card1.webp" alt="" aria-hidden="true">
+  <div class="inner">
+    <div class="head reveal">
+      <span class="eyebrow">MISSION</span>
+      <h2>미션 안내</h2>
+      <p>한게임포커 플레이 미션을 달성하고<br class="mo-br"> 마일리지를 획득하세요!<br>미션 달성 시 보상은 피카플레이 계정으로<br class="mo-br"> 자동 지급됩니다.</p>
+    </div>
+
+    <div class="missions missions--rows reveal-group">
+      <article class="mission mission--row panel reveal" data-mission="1">
+        <div class="mr__body">
+          <p class="mr__label">MISSION 01</p>
+          <h3 class="mr__title">한게임포커 10판 플레이</h3>
+          <p class="mr__headline"><em>2,000M</em></p>
+        </div>
+        <div class="mr__side">
+          <img class="coupon-img" src="assets/images/mile_2000.webp" alt="2,000 마일리지">
+        </div>
+        <div class="mission__done"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>완료한 미션</span></div>
+      </article>
+      <article class="mission mission--row panel reveal" data-mission="2">
+        <div class="mr__body">
+          <p class="mr__label">MISSION 02</p>
+          <h3 class="mr__title">한게임포커 50판 플레이</h3>
+          <p class="mr__headline"><em>4,000M</em></p>
+        </div>
+        <div class="mr__side">
+          <img class="coupon-img" src="assets/images/mile_4000.webp" alt="4,000 마일리지">
+        </div>
+        <div class="mission__done"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>완료한 미션</span></div>
+      </article>
+      <article class="mission mission--row panel reveal" data-mission="3">
+        <div class="mr__body">
+          <p class="mr__label">MISSION 03</p>
+          <h3 class="mr__title">한게임포커 100판 플레이</h3>
+          <p class="mr__headline"><em>7,000M</em></p>
+        </div>
+        <div class="mr__side">
+          <img class="coupon-img" src="assets/images/mile_7000.webp" alt="7,000 마일리지">
+        </div>
+        <div class="mission__done"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>완료한 미션</span></div>
+      </article>
+      <article class="mission mission--row panel reveal" data-mission="4">
+        <div class="mr__body">
+          <p class="mr__label">MISSION 04</p>
+          <h3 class="mr__title">하루 30분 이상 · 누적 3일 출석</h3>
+          <p class="mr__headline"><em>5,000M</em></p>
+        </div>
+        <div class="mr__side">
+          <img class="coupon-img" src="assets/images/mile_5000.webp" alt="5,000 마일리지">
+        </div>
+        <div class="mission__done"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>완료한 미션</span></div>
+      </article>
+    </div>
+
+    <div class="mission-total reveal">
+      <span class="mission-total__calc">2,000M + 4,000M + 7,000M + 5,000M</span>
+      <span class="mission-total__sum">= 최대 <span class="num">18,000M</span></span>
+    </div>
+    <p class="section__note">판수 미션은 한게임포커(7포커, 로우바둑이, 하이로우, 라스베가스 홀덤, 맞포커, 파티훌라, LA섯다)만 집계됩니다.</p>
+  </div>
+</section>
+
+<!-- ===== 이벤트 참여방법 ===== -->
+<div class="bg-wrap">
+  <div class="bg-dots" aria-hidden="true"></div>
+<canvas class="sec-sparkle" aria-hidden="true"></canvas>
+<section class="section section--howto" id="howto">
+  <img class="deco-blurcard deco-blurcard--r" src="assets/images/kv_card4.webp" alt="" aria-hidden="true">
+  <div class="inner">
+    <div class="head reveal">
+      <span class="eyebrow">HOW TO PLAY</span>
+      <h2>이벤트 참여방법</h2>
+      <p>피카플레이 로그인 → 이벤트 페이지 미션 시작 버튼 클릭 → 로비 진입·연동 확인 → 미션 달성!</p>
+    </div>
+    <div class="cards reveal-group">
+      <article class="card panel reveal">
+        <p class="card__step">STEP 01</p>
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/><circle cx="12" cy="9" r="2" stroke="#ffffff"/><path d="M8.8 13.2a3.6 3.6 0 0 1 6.4 0" stroke="#ffffff"/></svg>
+        </div>
+        <h3 class="card__title">피카플레이 회원으로 로그인</h3>
+        <p class="card__desc">피카 PC방 좌석에서 피카플레이<br>회원으로 로그인한 뒤, 이벤트<br>페이지에서 계정을 연동하세요.</p>
+      </article>
+      <article class="card panel reveal">
+        <p class="card__step">STEP 02</p>
+        <div class="card__icon">
+          <span class="msym" aria-hidden="true">poker_chip</span>
+        </div>
+        <h3 class="card__title">버튼으로 한게임포커 접속</h3>
+        <p class="card__desc"><b>‘한게임포커 접속하고 미션 시작하기’</b><br>버튼으로 접속해 대기실에 입장한 뒤<br>미션을 플레이하세요.</p>
+      </article>
+      <article class="card panel reveal">
+        <p class="card__step">STEP 03</p>
+        <div class="card__icon">
+          <span class="msym" aria-hidden="true">check_circle_unread</span>
+        </div>
+        <h3 class="card__title">미션 달성 · 보상 확인</h3>
+        <p class="card__desc">마일리지는 자동 지급됩니다.<br>피카플레이 APP 또는 크래프트박스<br>마이페이지에서 확인하세요.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 마일리지 사용처 ===== -->
+<section class="section section--mileage" id="mileage">
+  <img class="deco-blurcard deco-blurcard--l2" src="assets/images/kv_card2.webp" alt="" aria-hidden="true">
+  <div class="inner">
+    <div class="head reveal">
+      <span class="eyebrow">MILEAGE</span>
+      <h2>마일리지 사용처</h2>
+      <p class="head__sub">피카 가맹 PC방에서 요금제 및 먹거리 결제<br>크래프트박스 또는 피카플레이 APP에서 모바일 문화상품권으로 교환</p>
+    </div>
+    <div class="mframe reveal">
+      <div class="mframe__in">
+        <img src="assets/images/mileage_use.webp" alt="피카 가맹 PC방에서 피카플레이 마일리지로 먹거리 결제, 피카플레이 상품권 교환소에서 컬처랜드 모바일 문화상품권으로 교환" width="1670" height="823" loading="lazy">
+      </div>
+    </div>
+    <ul class="mileage__notes reveal">
+      <li>※ 미션으로 지급되는 마일리지의<br class="mo-br"> 유효기간은 90일 입니다.</li>
+      <li>※ 일부 매장에서는 마일리지 사용이<br class="mo-br"> 제한 될 수 있습니다.</li>
+    </ul>
+    <div class="mileage__cta reveal">
+      <a class="btn btn--line" target="_blank" rel="noopener noreferrer" href="https://ics.mediaweb.co.kr/_event/20231115_picapayGuide/picapay.html">PC방 사용 가이드</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ===== 유의사항 ===== -->
+<section class="notice" id="notice">
+  <div class="inner">
+    <h3>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.1"/></svg>
+      꼭 확인하세요!
+    </h3>
+    <ul>
+      <li><span>본 이벤트는 피카플레이 회원 전용 이벤트입니다. <a href="https://blog.naver.com/playcraftbox/223126575684" target="_blank" rel="noopener noreferrer">연동방법</a></span></li>
+      <li>한게임포커 로비 최초 진입 대상 계정만 참여 가능합니다.</li>
+      <li>이벤트 페이지 상단의 ‘한게임포커 접속하고 미션 시작하기’ 버튼을 통해 참여한 이용자만 이벤트 참여가 가능합니다.</li>
+      <li>본 이벤트는 마일리지 소진 현황에 따라 조기 종료 또는 연장될 수 있습니다.</li>
+      <li>기존 한게임포커 플레이미션 캠페인 참여 이력이 있는 계정은 참여 대상에서 제외됩니다.</li>
+      <li>판수 미션은 한게임포커(7포커, 로우바둑이, 하이로우, 라스베가스 홀덤, 맞포커, 파티훌라, LA섯다) 게임만 집계되며, 한게임카지노(바카라, 블랙잭, 비디오 포커, 슬롯)는 포함되지 않습니다.</li>
+      <li>3일 출석 미션은 이벤트 기간 중 하루 누적 30분 이상 플레이하면 1일 출석으로 인정되며, 누적 3일 출석 달성 시 보상이 지급됩니다.</li>
+      <li>이벤트 미션별 피카플레이 계정당 1회만 참여 가능하며, 중복 참여는 불가합니다.</li>
+      <li>미션 보상은 자동 지급됩니다.</li>
+      <li>부정한 방법으로 참여한 이력이 확인될 경우 지급된 보상은 사전 고지 없이 회수될 수 있습니다.</li>
+      <li>이벤트 관련 문의 및 불편사항은 피카플레이 또는 크래프트박스 고객센터 1:1 문의를 이용해 주세요.</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<!-- ===== 공유 모달 · 복사 토스트 · 모바일 플로팅 버튼 (제우스 공통) ===== -->
+<div id="shareModal" class="share-modal" role="dialog" aria-modal="true" aria-labelledby="shareModalTitle" aria-hidden="true">
+  <div class="share-modal__dialog" role="document">
+    <button type="button" class="share-modal__close" id="shareModalClose" aria-label="닫기">&times;</button>
+    <h2 id="shareModalTitle" class="share-modal__title">공유하기</h2>
+    <div class="share-modal__grid">
+      <button type="button" class="share-item share-item--kakao" data-share="kakao" aria-label="카카오톡으로 공유">
+        <span class="share-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.83 1.86 5.32 4.66 6.73L5.5 21.5l4.2-2.47c.76.11 1.54.17 2.3.17 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg></span>
+        <span class="share-item__label">카카오톡</span>
+      </button>
+      <button type="button" class="share-item share-item--facebook" data-share="facebook" aria-label="페이스북으로 공유">
+        <span class="share-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5v3.1h2.6V21h3.4z"/></svg></span>
+        <span class="share-item__label">페이스북</span>
+      </button>
+      <button type="button" class="share-item share-item--twitter" data-share="twitter" aria-label="트위터(X)로 공유">
+        <span class="share-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></span>
+        <span class="share-item__label">트위터</span>
+      </button>
+      <button type="button" class="share-item share-item--naver" data-share="naver" aria-label="네이버 블로그로 공유">
+        <span class="share-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.91 12.03 9.94 6H6v12h4.09v-6.03L14.06 18H18V6h-4.09z"/></svg></span>
+        <span class="share-item__label">네이버블로그</span>
+      </button>
+      <button type="button" class="share-item share-item--instagram" data-share="instagram" aria-label="인스타그램 공유용 URL 복사">
+        <span class="share-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+        <span class="share-item__label">인스타그램</span>
+      </button>
+      <button type="button" class="share-item share-item--copy" data-share="copy" aria-label="URL 복사">
+        <span class="share-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+        <span class="share-item__label">URL 복사</span>
+      </button>
+    </div>
+  </div>
+</div>
+<div id="copyToast" class="copy-toast" role="status" aria-live="polite">클립보드에 복사되었습니다.</div>
+<div class="mobile-fab" role="group" aria-label="모바일 플로팅 버튼">
+  <button class="mobile-fab__btn" type="button" id="btnShareFloating" aria-label="공유하기"><img src="assets/share_icon.svg" alt="" aria-hidden="true"></button>
+  <button class="mobile-fab__btn mobile-fab__btn--top" type="button" id="btnScrollTop" aria-label="맨 위로"><span aria-hidden="true">TOP</span></button>
+</div>
+
+<!-- 검토용 상태·미션 미리보기 도구 — URL에 ?review=1 일 때만 노출 (실서비스 노출 제외) -->
+<aside class="review-tool" id="reviewTool" hidden aria-label="검토용 미리보기 도구">
+  <p class="review-tool__head">REVIEW ONLY</p>
+  <div class="review-tool__row" data-group="step1">
+    <span class="review-tool__label">STEP 01 상태</span>
+    <button type="button" data-step1="guest" aria-pressed="true">로그인 전</button>
+    <button type="button" data-step1="login" aria-pressed="false">로그인 완료</button>
+    <button type="button" data-step1="linked" aria-pressed="false">연동 완료</button>
+  </div>
+  <div class="review-tool__row" data-group="mission">
+    <span class="review-tool__label">완료한 미션</span>
+    <button type="button" data-mission-toggle="1" aria-pressed="false">M1</button>
+    <button type="button" data-mission-toggle="2" aria-pressed="false">M2</button>
+    <button type="button" data-mission-toggle="3" aria-pressed="false">M3</button>
+    <button type="button" data-mission-toggle="4" aria-pressed="false">M4</button>
+  </div>
+</aside>
+
+<script src="assets/js/share.js"></script>
+<script src="assets/js/page.js"></script>
+<script src="assets/js/kv-parallax.js"></script>
+<script src="assets/js/kv-orbs.js"></script>
+<script src="assets/js/sec-sparkle.js" defer></script>
+</body>
+</html>
