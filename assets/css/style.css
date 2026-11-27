@@ -1667,3 +1667,16 @@ body.kv-edit .kvl--orbs { outline: none; pointer-events: none; }
 .mframe__in { aspect-ratio: auto; }
 .mframe__in img { height: auto; object-fit: contain; }
 @media (max-width: 768px) { .mframe__in { aspect-ratio: auto; } }
+
+/* =========================================================
+   KV 최종 배치 — 'KV 이미지 교체' 위젯에서 잡은 위치·크기 그대로 확정
+   (위젯 제거 후에도 동일하게 보이도록 고정, 위 규칙들보다 우선)
+   ========================================================= */
+.kvl--char     { left: 34.42%; top: 12.37%;  width: 30.37%; }
+.kvl--table    { left: 12.65%; top: 49.15%;  width: 75.99%; }
+.kvl--card1    { left: 15.48%; top: 42.11%;  width: 15.13%; }
+.kvl--card3    { left: 27.67%; top: 32.89%;  width: 9.116%; }
+.kvl--card4    { left: 63.93%; top: 37.36%;  width: 15.874%; }
+.kvl--card6    { left: 68.13%; top: 5.93%;   width: 12.259%; }
+.kvl--blurcard { left: 4.76%;  top: -13.2%;  width: 26.012%; }
+.kvl--card2    { display: none; }
