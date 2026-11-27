@@ -24,7 +24,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&text=0123456789%2C&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400..1000&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100..700,0,0&icon_names=check_circle_unread,poker_chip&display=block" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=1127f">
+<link rel="stylesheet" href="assets/css/style.css?v=1129c">
 </head>
 <body>
 
@@ -86,23 +86,22 @@
   <div class="inner join__grid reveal-group">
     <!-- STEP 01 : data-state = guest | login | linked (같은 위치에서 전환) -->
     <article class="join-card panel reveal" id="step1" data-state="guest">
+      <span class="join-card__ribbon">필수 · 먼저 진행</span>
       <span class="badge-step">STEP 01</span>
       <h3 class="join-card__title">피카플레이 로그인</h3>
-      <p class="join-card__desc">피카 PC방 좌석에서 피카플레이 회원으로<br class="forWeb"> 로그인해 주세요.</p>
+      <p class="join-card__desc">피카 PC방 좌석에서<br>피카플레이 회원으로 로그인해 주세요.</p>
       <div class="join-card__action">
         <div class="step1-state step1-state--guest">
           <button type="button" class="btn btn--gold" data-action="login">피카플레이 로그인하기</button>
         </div>
         <div class="step1-state step1-state--login">
           <span class="btn btn--done" role="status">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
             로그인 완료
           </span>
-          <p class="step1-msg"><b>피카플레이 로그인 완료! 미션을 시작해 주세요.</b>아래 ‘한게임포커 접속하고 미션 시작하기’ 버튼을 눌러 주세요.</p>
+          <p class="step1-msg"><b>피카플레이 로그인 완료! 미션을 시작해 주세요.</b>우측 ‘한게임포커 접속하고 미션 시작하기’ 버튼을 눌러 주세요.</p>
         </div>
         <div class="step1-state step1-state--linked">
           <span class="btn btn--done" role="status">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
             연동 완료
           </span>
           <p class="step1-msg"><b>최초 로비 진입 확인 완료! 미션 참여가 가능합니다.</b>각 미션을 달성하면 마일리지가 자동 지급됩니다.</p>
@@ -114,14 +113,14 @@
     <!-- STEP 02 : 버튼은 모든 상태에서 유지 (본 페이지 버튼 경유 필수) -->
     <article class="join-card panel reveal" id="step2">
       <span class="badge-step">STEP 02</span>
-      <h3 class="join-card__title">한게임포커 접속 및<br class="mo-br">미션 시작</h3>
+      <h3 class="join-card__title">한게임포커 접속 및 <br class="mo-br">미션 시작</h3>
       <p class="join-card__desc">반드시 아래 버튼을 통해 접속해야<br>미션 참여가 인정됩니다.</p>
       <div class="join-card__action">
         <a class="btn btn--magenta" href="https://poker.hangame.com/" target="_blank" rel="noopener noreferrer" data-action="start">
           
           한게임포커 접속하고 미션 시작하기
         </a>
-        <p class="join-card__sub">회원가입 후 24시간 이내 대기실 입장 필수</p>
+        <!-- <p class="join-card__sub">회원가입 후 24시간 이내 대기실 입장 필수</p> -->
       </div>
     </article>
   </div>
@@ -146,9 +145,9 @@
           <p class="mr__headline"><em>2,000M</em></p>
         </div>
         <div class="mr__side">
-          <img class="coupon-img" src="assets/images/mile_2000.webp" alt="2,000 마일리지">
+          <span class="coupon-wrap"><img class="coupon-img" src="assets/images/mile_2000.webp" alt="2,000 마일리지"><img class="coupon-logo" src="assets/images/logo_poker.webp" alt="" aria-hidden="true" width="550" height="475"></span>
         </div>
-        <div class="mission__done"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>완료한 미션</span></div>
+        <div class="mission__done"><span class="mission__stamp"><img src="assets/images/mission_done.webp" alt="" width="996" height="335"><b>완료한 미션</b></span></div>
       </article>
       <article class="mission mission--row panel reveal" data-mission="2">
         <div class="mr__body">
@@ -157,9 +156,9 @@
           <p class="mr__headline"><em>4,000M</em></p>
         </div>
         <div class="mr__side">
-          <img class="coupon-img" src="assets/images/mile_4000.webp" alt="4,000 마일리지">
+          <span class="coupon-wrap"><img class="coupon-img" src="assets/images/mile_4000.webp" alt="4,000 마일리지"><img class="coupon-logo" src="assets/images/logo_poker.webp" alt="" aria-hidden="true" width="550" height="475"></span>
         </div>
-        <div class="mission__done"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>완료한 미션</span></div>
+        <div class="mission__done"><span class="mission__stamp"><img src="assets/images/mission_done.webp" alt="" width="996" height="335"><b>완료한 미션</b></span></div>
       </article>
       <article class="mission mission--row panel reveal" data-mission="3">
         <div class="mr__body">
@@ -168,9 +167,9 @@
           <p class="mr__headline"><em>7,000M</em></p>
         </div>
         <div class="mr__side">
-          <img class="coupon-img" src="assets/images/mile_7000.webp" alt="7,000 마일리지">
+          <span class="coupon-wrap"><img class="coupon-img" src="assets/images/mile_7000.webp" alt="7,000 마일리지"><img class="coupon-logo" src="assets/images/logo_poker.webp" alt="" aria-hidden="true" width="550" height="475"></span>
         </div>
-        <div class="mission__done"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>완료한 미션</span></div>
+        <div class="mission__done"><span class="mission__stamp"><img src="assets/images/mission_done.webp" alt="" width="996" height="335"><b>완료한 미션</b></span></div>
       </article>
       <article class="mission mission--row panel reveal" data-mission="4">
         <div class="mr__body">
@@ -179,17 +178,17 @@
           <p class="mr__headline"><em>5,000M</em></p>
         </div>
         <div class="mr__side">
-          <img class="coupon-img" src="assets/images/mile_5000.webp" alt="5,000 마일리지">
+          <span class="coupon-wrap"><img class="coupon-img" src="assets/images/mile_5000.webp" alt="5,000 마일리지"><img class="coupon-logo" src="assets/images/logo_poker.webp" alt="" aria-hidden="true" width="550" height="475"></span>
         </div>
-        <div class="mission__done"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>완료한 미션</span></div>
+        <div class="mission__done"><span class="mission__stamp"><img src="assets/images/mission_done.webp" alt="" width="996" height="335"><b>완료한 미션</b></span></div>
       </article>
     </div>
 
     <div class="mission-total reveal">
       <span class="mission-total__calc">2,000M + 4,000M + 7,000M + 5,000M</span>
       <span class="mission-total__sum">= 최대 <span class="num">18,000M</span></span>
+      <p class="mission-total__note">판수 미션은 한게임포커(7포커, 로우바둑이, 하이로우, 라스베가스 홀덤, 맞포커, 파티훌라, LA섯다) 게임만 집계되며,<br class="forWeb"> 한게임카지노(바카라, 블랙잭, 비디오 포커, 슬롯)는 포함되지 않습니다.</p>
     </div>
-    <p class="section__note">판수 미션은 한게임포커(7포커, 로우바둑이, 하이로우, 라스베가스 홀덤, 맞포커, 파티훌라, LA섯다)만 집계됩니다.</p>
   </div>
 </section>
 
@@ -205,30 +204,30 @@
       <h2>이벤트 참여방법</h2>
       <p>피카플레이 로그인 → 이벤트 페이지 미션 시작 버튼 클릭 → 로비 진입·연동 확인 → 미션 달성!</p>
     </div>
-    <div class="cards reveal-group">
+    <div class="cards cards--4 cards--steps reveal-group">
       <article class="card panel reveal">
         <p class="card__step">STEP 01</p>
-        <div class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/><circle cx="12" cy="9" r="2" stroke="#ffffff"/><path d="M8.8 13.2a3.6 3.6 0 0 1 6.4 0" stroke="#ffffff"/></svg>
-        </div>
-        <h3 class="card__title">피카플레이 회원으로 로그인</h3>
-        <p class="card__desc">피카 PC방 좌석에서 피카플레이<br>회원으로 로그인한 뒤, 이벤트<br>페이지에서 계정을 연동하세요.</p>
+        <div class="card__media"><img src="assets/images/img_step1.webp" alt="피카 PC방 좌석의 피카플레이 로그인 화면" width="139" height="157"></div>
+        <h3 class="card__title">피카플레이 로그인</h3>
+        <p class="card__desc">피카 PC방 좌석에서<br>피카플레이 회원으로 로그인해 주세요.</p>
       </article>
       <article class="card panel reveal">
         <p class="card__step">STEP 02</p>
-        <div class="card__icon">
-          <span class="msym" aria-hidden="true">poker_chip</span>
-        </div>
-        <h3 class="card__title">버튼으로 한게임포커 접속</h3>
-        <p class="card__desc"><b>‘한게임포커 접속하고 미션 시작하기’</b><br>버튼으로 접속해 대기실에 입장한 뒤<br>미션을 플레이하세요.</p>
+        <div class="card__media"><img class="card__media-btn" src="assets/images/img_step2.webp" alt="한게임포커 접속하고 미션 시작하기 버튼" width="375" height="102"></div>
+        <h3 class="card__title">미션 시작 버튼 클릭</h3>
+        <p class="card__desc">이벤트 페이지의<br><b>‘한게임포커 접속하고 미션 시작하기’</b><br>버튼을 눌러 주세요.</p>
       </article>
       <article class="card panel reveal">
         <p class="card__step">STEP 03</p>
-        <div class="card__icon">
-          <span class="msym" aria-hidden="true">check_circle_unread</span>
-        </div>
-        <h3 class="card__title">미션 달성 · 보상 확인</h3>
-        <p class="card__desc">마일리지는 자동 지급됩니다.<br>피카플레이 APP 또는 크래프트박스<br>마이페이지에서 확인하세요.</p>
+        <div class="card__media"><img src="assets/images/img_step3_linked.webp" alt="연동 완료 — 최초 로비 진입 확인 완료! 미션 참여가 가능합니다. 각 미션을 달성하면 마일리지가 자동 지급됩니다." width="383" height="154"></div>
+        <h3 class="card__title">참여 가능 상태 확인</h3>
+        <p class="card__desc">이벤트 페이지에서<br>연동 상태 정상 여부 확인</p>
+      </article>
+      <article class="card panel reveal">
+        <p class="card__step">STEP 04</p>
+        <div class="card__media"><img src="assets/images/img_step4.webp" alt="집계 게임: 7포커, 로우바둑이, 하이로우, 라스베가스 홀덤, 맞포커, 파티훌라, LA섯다" width="243" height="77"></div>
+        <h3 class="card__title">한게임포커 플레이</h3>
+        <p class="card__desc">미션을 달성하면 마일리지가 피카플레이 계정으로 자동 지급됩니다.</p>
       </article>
     </div>
   </div>
@@ -241,19 +240,19 @@
     <div class="head reveal">
       <span class="eyebrow">MILEAGE</span>
       <h2>마일리지 사용처</h2>
-      <p class="head__sub">피카 가맹 PC방에서 요금제 및 먹거리 결제<br>크래프트박스 또는 피카플레이 APP에서 모바일 문화상품권으로 교환</p>
     </div>
-    <div class="mframe reveal">
-      <div class="mframe__in">
+    <div class="muse reveal">
+      <div class="muse__img">
         <img src="assets/images/mileage_use.webp" alt="피카 가맹 PC방에서 피카플레이 마일리지로 먹거리 결제, 피카플레이 상품권 교환소에서 컬처랜드 모바일 문화상품권으로 교환" width="1670" height="823" loading="lazy">
       </div>
-    </div>
-    <ul class="mileage__notes reveal">
-      <li>※ 미션으로 지급되는 마일리지의<br class="mo-br"> 유효기간은 90일 입니다.</li>
-      <li>※ 일부 매장에서는 마일리지 사용이<br class="mo-br"> 제한 될 수 있습니다.</li>
-    </ul>
-    <div class="mileage__cta reveal">
-      <a class="btn btn--line" target="_blank" rel="noopener noreferrer" href="https://ics.mediaweb.co.kr/_event/20231115_picapayGuide/picapay.html">PC방 사용 가이드</a>
+      <div class="muse__body">
+        <p class="muse__lead">피카 가맹 PC방에서 요금제 및 먹거리 결제 <br>크래프트박스 또는 피카플레이 APP에서 모바일 문화상품권으로 교환</p>
+        <ul class="muse__notes">
+          <li>미션으로 지급되는 마일리지의 유효기간은 90일 입니다.</li>
+          <li>일부 매장에서는 마일리지 사용이 제한 될 수 있습니다.</li>
+        </ul>
+        <a class="btn btn--line muse__btn" target="_blank" rel="noopener noreferrer" href="https://ics.mediaweb.co.kr/_event/20231115_picapayGuide/picapay.html">PC방 사용 가이드</a>
+      </div>
     </div>
   </div>
 </section>
@@ -272,7 +271,7 @@
       <li>이벤트 페이지 상단의 ‘한게임포커 접속하고 미션 시작하기’ 버튼을 통해 참여한 이용자만 이벤트 참여가 가능합니다.</li>
       <li>본 이벤트는 마일리지 소진 현황에 따라 조기 종료 또는 연장될 수 있습니다.</li>
       <li>기존 한게임포커 플레이미션 캠페인 참여 이력이 있는 계정은 참여 대상에서 제외됩니다.</li>
-      <li>판수 미션은 한게임포커(7포커, 로우바둑이, 하이로우, 라스베가스 홀덤, 맞포커, 파티훌라, LA섯다) 게임만 집계되며, 한게임카지노(바카라, 블랙잭, 비디오 포커, 슬롯)는 포함되지 않습니다.</li>
+      <li>판수 미션은 한게임포커(7포커, 로우바둑이, 하이로우, 라스베가스 홀덤, 맞포커, 파티훌라, LA섯다) 게임만 집계되며, <br class="forWeb"> 한게임카지노(바카라, 블랙잭, 비디오 포커, 슬롯)는 포함되지 않습니다.</li>
       <li>3일 출석 미션은 이벤트 기간 중 하루 누적 30분 이상 플레이하면 1일 출석으로 인정되며, 누적 3일 출석 달성 시 보상이 지급됩니다.</li>
       <li>이벤트 미션별 피카플레이 계정당 1회만 참여 가능하며, 중복 참여는 불가합니다.</li>
       <li>미션 보상은 자동 지급됩니다.</li>
@@ -322,26 +321,34 @@
   <button class="mobile-fab__btn mobile-fab__btn--top" type="button" id="btnScrollTop" aria-label="맨 위로"><span aria-hidden="true">TOP</span></button>
 </div>
 
-<!-- 검토용 상태·미션 미리보기 도구 — URL에 ?review=1 일 때만 노출 (실서비스 노출 제외) -->
-<aside class="review-tool" id="reviewTool" hidden aria-label="검토용 미리보기 도구">
-  <p class="review-tool__head">REVIEW ONLY</p>
-  <div class="review-tool__row" data-group="step1">
-    <span class="review-tool__label">STEP 01 상태</span>
-    <button type="button" data-step1="guest" aria-pressed="true">로그인 전</button>
-    <button type="button" data-step1="login" aria-pressed="false">로그인 완료</button>
-    <button type="button" data-step1="linked" aria-pressed="false">연동 완료</button>
+<!-- 디자인 검토용 상태 미리보기 위젯 — 실서비스 배포 시 이 블록 삭제 (또는 URL에 ?hidePreview=1) -->
+<aside class="preview" id="reviewTool" aria-label="디자인 검토용 이벤트 상태 전환">
+  <button type="button" class="preview__close" id="previewClose" aria-label="미리보기 메뉴 닫기">&times;</button>
+  <p class="preview__title">디자인 검토용 · 상태 표시 미리보기</p>
+  <div class="preview__row" role="group" aria-label="STEP 01 상태">
+    <button type="button" data-step1="guest" aria-pressed="true">① 비로그인</button>
+    <button type="button" data-step1="login" aria-pressed="false">② 로그인 완료</button>
+    <button type="button" data-step1="linked" aria-pressed="false">③ 연동 완료</button>
   </div>
-  <div class="review-tool__row" data-group="mission">
-    <span class="review-tool__label">완료한 미션</span>
+  <div class="preview__divider"></div>
+  <p class="preview__label">미션 카드 표시 예시</p>
+  <div class="preview__row" role="group" aria-label="미션 완료 프리셋">
+    <button type="button" data-missions="" aria-pressed="true">기본 상태</button>
+    <button type="button" data-missions="1,2,3" aria-pressed="false">미션 1·2·3 완료</button>
+    <button type="button" data-missions="2,4" aria-pressed="false">미션 2·4 완료</button>
+  </div>
+  <div class="preview__row preview__row--each" role="group" aria-label="미션 개별 완료 토글">
+    <span>개별</span>
     <button type="button" data-mission-toggle="1" aria-pressed="false">M1</button>
     <button type="button" data-mission-toggle="2" aria-pressed="false">M2</button>
     <button type="button" data-mission-toggle="3" aria-pressed="false">M3</button>
     <button type="button" data-mission-toggle="4" aria-pressed="false">M4</button>
   </div>
+  <p class="preview__hint">상태값은 디자인 검토용입니다. 실제 운영에서는 로그인·연동 결과 및 이용자별 미션 달성 정보를 연결해야 합니다.</p>
 </aside>
 
 <script src="assets/js/share.js"></script>
-<script src="assets/js/page.js"></script>
+<script src="assets/js/page.js?v=2"></script>
 <script src="assets/js/kv-parallax.js"></script>
 <script src="assets/js/kv-orbs.js"></script>
 <script src="assets/js/sec-sparkle.js" defer></script>

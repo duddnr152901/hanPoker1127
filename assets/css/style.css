@@ -835,38 +835,6 @@ img { display: block; max-width: 100%; }
 .share-item--copy .share-item__icon { background: #2c2c32; }
 .share-item__label { font-size: 13px; font-weight: 600; color: #333; white-space: nowrap; }
 
-/* =========================================================
-   검토용 미리보기 도구 (?review=1 일 때만 노출 — 실서비스 제외)
-   ========================================================= */
-.review-tool {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 1900;
-  width: 260px;
-  padding: 16px;
-  font-size: 13px;
-  color: #e8e6e2;
-  background: rgba(8, 10, 24, .95);
-  border: 1px solid var(--gold-line);
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
-}
-.review-tool[hidden] { display: none; }
-.review-tool__head { margin-bottom: 10px; font-size: 11px; letter-spacing: .2em; color: var(--gold-400); }
-.review-tool__row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-.review-tool__row:last-child { margin-bottom: 0; }
-.review-tool__label { width: 100%; color: var(--ink-mute); }
-.review-tool button {
-  padding: 6px 10px;
-  font-size: 12px;
-  color: #e8e6e2;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, .25);
-  border-radius: 6px;
-  cursor: pointer;
-}
-.review-tool button[aria-pressed="true"] { color: #1a1003; background: var(--gold-300); border-color: var(--gold-300); }
 
 /* =========================================================
    reveal (제우스 reveal.js 동일 — 모바일/모션 감소 시 즉시 표시)
@@ -953,7 +921,6 @@ img { display: block; max-width: 100%; }
 
   .notice h3 { font-size: 19px; }
   .notice li { font-size: 14px; }
-  .review-tool { right: 80px; width: 220px; }
 }
 
 /* ===== 12월 시안 내용 반영 ===== */
@@ -1120,7 +1087,7 @@ body.kv-edit .kvl--orbs { outline: none; pointer-events: none; }
   border-radius: 0 0 14px 14px;
   background:
     radial-gradient(ellipse 70% 90% at 50% 100%, rgba(190, 60, 200, .22), transparent 70%),
-    url("../images/tex_dots.png") 0 0 / 240px 240px;
+    url("../images/tex_dots.webp") 0 0 / 240px 240px;
   opacity: .4;
   -webkit-mask-image: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, .5) 35%, transparent 100%);
   mask-image: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, .5) 35%, transparent 100%);
@@ -1455,11 +1422,11 @@ body.kv-edit .kvl--orbs { outline: none; pointer-events: none; }
   content: ""; position: absolute; inset: -160px 0 0 0; z-index: 0; pointer-events: none;
   background: linear-gradient(180deg, #5b8cff 30%, #a35cff 55%, #c94fe0 75%);
   opacity: .6;
-  -webkit-mask-image: url("../images/tex_dots.png"), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.25) 15%, rgba(0,0,0,.6) 30%, #000 45%, #000 72%, transparent 100%), linear-gradient(90deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 38%);
+  -webkit-mask-image: url("../images/tex_dots.webp"), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.25) 15%, rgba(0,0,0,.6) 30%, #000 45%, #000 72%, transparent 100%), linear-gradient(90deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 38%);
   -webkit-mask-size: 240px 240px, 100% 100%, 100% 100%;
   -webkit-mask-repeat: repeat, no-repeat, no-repeat;
   -webkit-mask-composite: source-in, source-in;
-          mask-image: url("../images/tex_dots.png"), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.25) 15%, rgba(0,0,0,.6) 30%, #000 45%, #000 72%, transparent 100%), linear-gradient(90deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 38%);
+          mask-image: url("../images/tex_dots.webp"), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.25) 15%, rgba(0,0,0,.6) 30%, #000 45%, #000 72%, transparent 100%), linear-gradient(90deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 38%);
           mask-size: 240px 240px, 100% 100%, 100% 100%;
           mask-repeat: repeat, no-repeat, no-repeat;
           mask-composite: intersect;
@@ -1469,11 +1436,11 @@ body.kv-edit .kvl--orbs { outline: none; pointer-events: none; }
   content: ""; position: absolute; inset: -160px 0 0 0; z-index: 0; pointer-events: none;
   background: linear-gradient(180deg, #5b8cff 30%, #a35cff 55%, #c94fe0 75%);
   opacity: .6;
-  -webkit-mask-image: url("../images/tex_dots.png"), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.25) 15%, rgba(0,0,0,.6) 30%, #000 45%, #000 72%, transparent 100%), linear-gradient(270deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 38%);
+  -webkit-mask-image: url("../images/tex_dots.webp"), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.25) 15%, rgba(0,0,0,.6) 30%, #000 45%, #000 72%, transparent 100%), linear-gradient(270deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 38%);
   -webkit-mask-size: 240px 240px, 100% 100%, 100% 100%;
   -webkit-mask-repeat: repeat, no-repeat, no-repeat;
   -webkit-mask-composite: source-in, source-in;
-          mask-image: url("../images/tex_dots.png"), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.25) 15%, rgba(0,0,0,.6) 30%, #000 45%, #000 72%, transparent 100%), linear-gradient(270deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 38%);
+          mask-image: url("../images/tex_dots.webp"), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.25) 15%, rgba(0,0,0,.6) 30%, #000 45%, #000 72%, transparent 100%), linear-gradient(270deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 38%);
           mask-size: 240px 240px, 100% 100%, 100% 100%;
           mask-repeat: repeat, no-repeat, no-repeat;
           mask-composite: intersect;
@@ -1512,13 +1479,13 @@ body.kv-edit .kvl--orbs { outline: none; pointer-events: none; }
 /* 참여방법·마일리지 영역 도트 패턴 (좌/우) */
 .bg-dots { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
 .bg-dots::before, .bg-dots::after { content: ""; position: absolute; z-index: 1; pointer-events: none; background: linear-gradient(180deg, #5b8cff 30%, #a35cff 55%, #c94fe0 75%); opacity: .3; }
-.bg-dots::before { inset: 0 0 50% 0; -webkit-mask-image: url("../images/tex_dots.png"), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.6) 20%, #000 40%, #000 70%, transparent 100%), linear-gradient(90deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 38%);
+.bg-dots::before { inset: 0 0 50% 0; -webkit-mask-image: url("../images/tex_dots.webp"), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.6) 20%, #000 40%, #000 70%, transparent 100%), linear-gradient(90deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 38%);
   -webkit-mask-size: 240px 240px, 100% 100%, 100% 100%; -webkit-mask-repeat: repeat, no-repeat, no-repeat; -webkit-mask-composite: source-in, source-in;
-  mask-image: url("../images/tex_dots.png"), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.6) 20%, #000 40%, #000 70%, transparent 100%), linear-gradient(90deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 38%);
+  mask-image: url("../images/tex_dots.webp"), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.6) 20%, #000 40%, #000 70%, transparent 100%), linear-gradient(90deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 38%);
   mask-size: 240px 240px, 100% 100%, 100% 100%; mask-repeat: repeat, no-repeat, no-repeat; mask-composite: intersect; }
-.bg-dots::after { inset: 30% 0 10% 0; -webkit-mask-image: url("../images/tex_dots.png"), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.6) 20%, #000 40%, #000 70%, transparent 100%), linear-gradient(270deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 38%);
+.bg-dots::after { inset: 30% 0 10% 0; -webkit-mask-image: url("../images/tex_dots.webp"), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.6) 20%, #000 40%, #000 70%, transparent 100%), linear-gradient(270deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 38%);
   -webkit-mask-size: 240px 240px, 100% 100%, 100% 100%; -webkit-mask-repeat: repeat, no-repeat, no-repeat; -webkit-mask-composite: source-in, source-in;
-  mask-image: url("../images/tex_dots.png"), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.6) 20%, #000 40%, #000 70%, transparent 100%), linear-gradient(270deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 38%);
+  mask-image: url("../images/tex_dots.webp"), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.6) 20%, #000 40%, #000 70%, transparent 100%), linear-gradient(270deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 38%);
   mask-size: 240px 240px, 100% 100%, 100% 100%; mask-repeat: repeat, no-repeat, no-repeat; mask-composite: intersect; }
 @media (max-width: 768px) { .bg-dots { display: none; } }
 
@@ -1680,3 +1647,208 @@ body.kv-edit .kvl--orbs { outline: none; pointer-events: none; }
 .kvl--card6    { left: 68.13%; top: 5.93%;   width: 12.259%; }
 .kvl--blurcard { left: 4.76%;  top: -13.2%;  width: 26.012%; }
 .kvl--card2    { display: none; }
+
+/* 섹션 간격 축소 — STEP 카드↔미션, 미션↔참여방법 */
+.join { padding-bottom: clamp(44px, 4.4vw, 68px); }
+.section--mission { padding-top: clamp(52px, 5.4vw, 80px); padding-bottom: clamp(52px, 5.4vw, 80px); }
+.section--howto { padding-top: clamp(52px, 5.4vw, 80px); }
+@media (max-width: 768px) { .join { padding-bottom: 44px; } }
+
+/* =========================================================
+   이벤트 참여방법 — 기존 카드 스타일 + 이미지 (4단계, 넓게)
+   ========================================================= */
+.section--howto > .inner { max-width: 1360px; }
+.cards--steps { gap: clamp(14px, 1.4vw, 22px); }
+.cards--steps .card { padding: clamp(28px, 2.6vw, 38px) clamp(18px, 1.6vw, 26px); gap: 16px; }
+.card__media { display: flex; align-items: center; justify-content: center; width: 100%; height: 190px; border-radius: 10px; background: radial-gradient(ellipse 70% 60% at 50% 55%, rgba(120, 90, 220, .2) 0%, rgba(5, 7, 20, 0) 70%), rgba(5, 7, 20, .5); }
+.card__media img { display: block; max-width: 86%; max-height: 84%; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .45)); }
+.cards--steps .card__title { font-size: 19px; word-break: keep-all; }
+.cards--steps .card__desc { font-size: 14px; line-height: 1.65; word-break: keep-all; }
+
+/* STEP 02 — 시작하기 버튼 이미지 */
+.card__media img.card__media-btn { max-width: 92%; border-radius: 999px; filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .4)); }
+@media (max-width: 768px) { .card__media { height: 170px; } }
+
+/* =========================================================
+   마일리지 사용처 — 가로형 (왼쪽 이미지 · 오른쪽 안내 + 버튼)
+   ========================================================= */
+.muse { display: grid; grid-template-columns: minmax(0, 46%) minmax(0, 1fr); align-items: center; gap: clamp(24px, 3.4vw, 56px); max-width: 1100px; margin: 0 auto; padding: clamp(24px, 2.6vw, 40px) clamp(24px, 3.4vw, 56px); border: 1px solid var(--gold-line-soft); border-radius: 16px; background: linear-gradient(180deg, rgba(17, 24, 65, .75) 0%, rgba(10, 14, 36, .9) 100%); }
+.muse__img img { display: block; width: 100%; height: auto; border-radius: 10px; }
+.muse__body { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; text-align: left; }
+.muse__lead { margin: 0; font-size: clamp(16px, 1.25vw, 19px); font-weight: 700; line-height: 1.65; color: #fff; word-break: keep-all; }
+.muse__notes { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: var(--ink-mute); }
+.muse__notes li { position: relative; padding-left: 14px; word-break: keep-all; }
+.muse__notes li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 5px; height: 5px; border-radius: 50%; background: var(--ink-mute); }
+.muse__btn { margin-top: 6px; }
+@media (max-width: 768px) {
+  .muse { grid-template-columns: 1fr; padding: 22px 18px 26px; }
+  .muse__body { align-items: center; text-align: center; }
+  .muse__lead br { display: none; }
+  .muse__notes { align-items: flex-start; text-align: left; }
+  .btn.btn--line.muse__btn { width: min(260px, 100%); }
+}
+.muse { grid-template-columns: minmax(0, 44%) minmax(0, 1fr); }
+.muse__lead { font-size: clamp(15px, 1.05vw, 17px); }
+.btn.btn--line.muse__btn { width: min(240px, 100%); }
+
+/* 합계 박스 안 하단 안내 문구 */
+.mission-total__note { flex-basis: 100%; margin: 10px 0 0; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, .08); text-align: center; font-size: 14px; line-height: 1.6; color: var(--ink-mute); word-break: keep-all; }
+@media (max-width: 768px) { .mission-total__note { font-size: 13px; } }
+
+/* 합계 박스 힘 빼기 — 배경·테두리 옅게, 합계 글자 작고 차분하게 */
+.mission-total { padding: 18px 24px; gap: 6px 14px; background: rgba(255, 255, 255, .015); border-color: rgba(255, 255, 255, .06); }
+.mission-total__calc { font-size: 14px; color: var(--ink-mute); }
+.mission-total__sum { font-size: clamp(16px, 1.2vw, 18px); font-weight: 700; }
+.mission-total__note { margin-top: 6px; padding-top: 10px; font-size: 13px; border-top-color: rgba(255, 255, 255, .05); }
+/* 합계 박스 글자 살짝 키움 */
+.mission-total__calc { font-size: 15px; }
+.mission-total__sum { font-size: clamp(18px, 1.4vw, 21px); }
+.mission-total__note { font-size: 14px; }
+@media (max-width: 768px) { .mission-total__calc { font-size: 14px; } .mission-total__note { font-size: 13px; } }
+/* 합계 박스 위로 + 한 번 더 키움 */
+.mission-total { margin-top: 10px; padding: 22px 28px; }
+.mission-total__calc { font-size: 16px; }
+.mission-total__sum { font-size: clamp(20px, 1.6vw, 24px); }
+.mission-total__note { font-size: 15px; }
+@media (max-width: 768px) { .mission-total { margin-top: 8px; } .mission-total__calc { font-size: 14px; } .mission-total__sum { font-size: 20px; } .mission-total__note { font-size: 13px; } }
+/* 합계 박스 테두리 — 위 미션 카드와 같은 바깥 보더 (안쪽 보더 없음) */
+.mission-total { position: relative; border: 1px solid var(--gold-line); border-radius: 14px; }
+/* 합계 — 계산식·합계 키우고, '최대 18,000M' 그라데이션 강조 복원 */
+.mission-total__calc { font-size: 18px; }
+.mission-total__sum { font-size: clamp(24px, 1.9vw, 30px); font-weight: 900; }
+.mission-total__sum {
+  background: linear-gradient(180deg, rgba(255,255,255,.9) 0%, rgba(255,255,255,.3) 50%, rgba(255,255,255,0) 80%), linear-gradient(90deg, #9cc4ff 0%, #c8a4ff 50%, #ff9ddc 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+@media (max-width: 768px) { .mission-total__calc { font-size: 15px; } .mission-total__sum { font-size: 24px; } }
+/* 계산식 — 합계와 같은 크기·서체, 색은 차분하게 */
+.mission-total__calc { font-family: "Roboto Flex", "Roboto", "Noto Sans KR", sans-serif; font-size: clamp(24px, 1.9vw, 30px); font-weight: 800; letter-spacing: .01em; color: var(--gold-400); }
+@media (max-width: 768px) { .mission-total__calc { font-size: 20px; } }
+/* 모바일: 계산식 한 줄 고정 (화면 폭에 맞춰 크기 조절) */
+@media (max-width: 768px) {
+  .mission-total { padding-left: 14px; padding-right: 14px; }
+  .mission-total__calc { white-space: nowrap; font-size: min(20px, 4.6vw); letter-spacing: 0; }
+}
+
+/* =========================================================
+   디자인 검토용 상태 미리보기 위젯 (시안 preview-switcher 스타일)
+   ========================================================= */
+.preview { position: fixed; right: 16px; bottom: 16px; z-index: 2000; width: min(420px, calc(100vw - 32px)); padding: 12px 14px; background: rgba(9, 16, 35, .97); border: 1px solid #d2b36e; border-radius: 12px; box-shadow: 0 12px 30px rgba(0, 0, 0, .45); font-family: var(--sans); color: #dce3f0; }
+.preview__close { position: absolute; right: 8px; top: 6px; width: 24px; height: 24px; padding: 0; border: 0; background: transparent; color: #e9d9b4; font-size: 16px; line-height: 1; cursor: pointer; }
+.preview__title { margin: 0 0 8px; padding-right: 20px; font-size: 12px; font-weight: 900; color: #edd083; }
+.preview__label { margin: 0 0 6px; font-size: 11px; font-weight: 800; color: #d8dfec; }
+.preview__row { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; }
+.preview__row + .preview__row { margin-top: 6px; }
+.preview__row--each span { font-size: 11px; color: #a7b0c4; margin-right: 2px; }
+.preview__row button { padding: 6px 9px; border: 1px solid #697392; border-radius: 7px; background: #1a2441; color: #dce3f0; font: 600 12px var(--sans); cursor: pointer; }
+.preview__row button:hover { border-color: #b9a46f; }
+.preview__row button[aria-pressed="true"] { border-color: #eed38d; background: #44335a; color: #fff3cb; box-shadow: inset 0 0 0 1px rgba(255, 229, 172, .12); }
+.preview__divider { height: 1px; margin: 10px 0 8px; background: rgba(218, 183, 106, .26); }
+.preview__hint { margin: 8px 0 0; font-size: 11px; line-height: 1.5; color: #a7b0c4; }
+@media (max-width: 768px) {
+  .preview { right: 7px; bottom: 7px; width: calc(100vw - 14px); padding: 10px; }
+  .preview__row button { padding: 5px 7px; font-size: 11px; }
+  .preview__hint { display: none; }
+}
+/* 미션 완료 딤 — 카드 전체를 덮도록 (.panel > * 규칙보다 우선) */
+.mission.panel > .mission__done { position: absolute; inset: 0; z-index: 5; border-radius: 14px; background: rgba(3, 4, 12, .72); }
+
+/* STEP 01 — 비로그인·로그인 완료·연동 완료 박스 높이 동일
+   세 상태를 같은 칸에 겹쳐 두고 현재 상태만 보이게 → 가장 긴 상태 기준으로 높이 고정 */
+.join-card__action { display: grid; grid-template-columns: 100%; justify-items: center; row-gap: 14px; }
+.join-card__action > .step1-state { grid-area: 1 / 1; display: flex; justify-content: center; visibility: hidden; }
+[data-state="guest"] .join-card__action > .step1-state--guest,
+[data-state="login"] .join-card__action > .step1-state--login,
+[data-state="linked"] .join-card__action > .step1-state--linked { visibility: visible; }
+.join-card__action > .join-card__sub { grid-area: 2 / 1; }
+
+/* STEP 01·02 버튼 정렬 — 제목·설명 아래 남은 영역의 세로 가운데에 버튼 배치, 두 박스 버튼 높이 일치
+   (연동방법 링크는 STEP 01 박스 아래쪽에 고정되어 가운데 정렬에 영향 없음) */
+.join__grid { align-items: stretch; }
+.join-card .join-card__action { flex: 1 1 auto; position: relative; align-content: center; padding-bottom: 40px; }
+.join-card__action > .join-card__sub { position: absolute; left: 0; right: 0; bottom: 0; text-align: center; }
+
+/* STEP 01·02 버튼 크게 */
+.join-card .btn.btn--gold, .join-card .btn.btn--gold:hover { width: min(340px, 100%); height: 70px; font-size: 18px; }
+.join-card .btn.btn--magenta, .join-card .btn.btn--magenta:hover { width: min(380px, 100%); height: 70px; font-size: 17px; }
+@media (max-width: 768px) {
+  .join-card .btn.btn--gold, .join-card .btn.btn--gold:hover,
+  .join-card .btn.btn--magenta, .join-card .btn.btn--magenta:hover { width: min(340px, 100%); height: 60px; font-size: 16px; }
+}
+
+/* STEP 01 로그인 완료·연동 완료 표시 — 체크 아이콘 제거, 보라·핑크·블루 그라데이션 */
+.join-card .btn.btn--done {
+  width: min(340px, 100%); height: 70px; padding: 0 24px;
+  border: 1px solid rgba(255, 255, 255, .22); border-radius: 999px;
+  background: linear-gradient(90deg, #5b6cff 0%, #9a5cff 45%, #e45cc8 100%);
+  color: #fff; font-size: 18px; font-weight: 900; letter-spacing: -.01em;
+  text-shadow: 0 1px 3px rgba(40, 10, 80, .45);
+  box-shadow: 0 8px 24px rgba(140, 80, 255, .35), inset 0 1px 0 rgba(255, 255, 255, .25);
+  cursor: default;
+}
+@media (max-width: 768px) { .join-card .btn.btn--done { height: 60px; font-size: 16px; } }
+/* 완료 표시 — 배경 블랙 + 테두리를 보라·핑크·블루 그라데이션으로 */
+.join-card .btn.btn--done {
+  border: 2px solid transparent;
+  background: linear-gradient(#07071a, #07071a) padding-box, linear-gradient(90deg, #5b6cff 0%, #9a5cff 45%, #e45cc8 100%) border-box;
+  text-shadow: none;
+  box-shadow: 0 8px 24px rgba(140, 80, 255, .28);
+}
+/* 완료 표시 — 상단 중앙 은은한 보라 빛 (패널 상단과 같은 톤) */
+.join-card .btn.btn--done {
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 0%, rgba(150, 60, 170, .5) 0%, rgba(110, 40, 140, .2) 50%, transparent 80%) padding-box,
+    linear-gradient(#07071a, #07071a) padding-box,
+    linear-gradient(90deg, #5b6cff 0%, #9a5cff 45%, #e45cc8 100%) border-box;
+}
+
+/* 완료한 미션 — 미션완료 아이콘(기울어진 플레이트) 위에 텍스트 */
+.mission__done .mission__stamp { position: relative; display: block; width: min(300px, 70%); padding: 0; border: 0; border-radius: 0; box-shadow: none; transform: none; filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .55)); }
+.mission__stamp img { display: block; width: 100%; height: auto; }
+.mission__stamp b { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; transform: rotate(-3.2deg); font-family: var(--title); font-size: clamp(20px, 1.7vw, 26px); font-weight: 900; letter-spacing: -.01em; color: #fff; text-shadow: 0 0 12px rgba(200, 120, 255, .6), 0 2px 4px rgba(0, 0, 0, .6); white-space: nowrap; }
+@media (max-width: 768px) { .mission__done .mission__stamp { width: min(240px, 72%); } .mission__stamp b { font-size: 19px; } }
+
+/* 완료 표시 왼쪽 상태 점 — 로그인 완료: 초록 / 연동 완료: 보라 */
+.join-card .btn.btn--done { gap: 10px; }
+.join-card .btn.btn--done::before { content: ""; position: static; display: inline-block; flex: none; width: 10px; height: 10px; border-radius: 50%; background: #35d07f; box-shadow: 0 0 0 3px rgba(53, 208, 127, .2), 0 0 10px rgba(53, 208, 127, .8); transform: none; filter: none; }
+.join-card .step1-state--linked .btn.btn--done::before { background: #b57cff; box-shadow: 0 0 0 3px rgba(181, 124, 255, .22), 0 0 10px rgba(181, 124, 255, .85); }
+
+/* 마일리지 쿠폰 오른쪽 위 한게임포커 로고 */
+.coupon-wrap { position: relative; display: inline-block; line-height: 0; }
+.coupon-logo { position: absolute; top: -12%; right: -4%; width: 30%; height: auto; pointer-events: none; filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .5)); }
+
+/* 완료 표시 상태 점 — 살짝 퍼져나가는 웨이브 */
+.join-card .btn.btn--done { --dot: 53, 208, 127; }
+.join-card .step1-state--linked .btn.btn--done { --dot: 181, 124, 255; }
+.join-card .btn.btn--done::before { animation: doneDotWave 2.4s ease-out infinite; }
+@keyframes doneDotWave {
+  0%   { box-shadow: 0 0 0 0 rgba(var(--dot), .45), 0 0 8px rgba(var(--dot), .8); }
+  70%  { box-shadow: 0 0 0 7px rgba(var(--dot), 0), 0 0 8px rgba(var(--dot), .8); }
+  100% { box-shadow: 0 0 0 7px rgba(var(--dot), 0), 0 0 8px rgba(var(--dot), .8); }
+}
+@media (prefers-reduced-motion: reduce) { .join-card .btn.btn--done::before { animation: none; } }
+/* 웨이브 조금 더 보이게 — 시작 진하기·퍼지는 거리 증가 */
+@keyframes doneDotWave {
+  0%   { box-shadow: 0 0 0 0 rgba(var(--dot), .7), 0 0 10px rgba(var(--dot), .9); }
+  70%  { box-shadow: 0 0 0 10px rgba(var(--dot), 0), 0 0 10px rgba(var(--dot), .9); }
+  100% { box-shadow: 0 0 0 10px rgba(var(--dot), 0), 0 0 10px rgba(var(--dot), .9); }
+}
+
+/* STEP 01 오른쪽 위 대각선 띠 '필수 · 먼저 진행' (블루·보라·핑크 그라데이션) */
+.join-card.panel > .join-card__ribbon {
+  position: absolute; z-index: 4; top: 34px; right: -58px;
+  width: 230px; padding: 9px 0;
+  transform: rotate(45deg);
+  background: linear-gradient(90deg, #5b6cff 0%, #9a5cff 45%, #e45cc8 100%);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .4), inset 0 1px 0 rgba(255, 255, 255, .3);
+  color: #fff; font-family: var(--sans); font-size: 14px; font-weight: 800; letter-spacing: .02em; line-height: 1.2;
+  text-align: center; white-space: nowrap; text-shadow: 0 1px 2px rgba(40, 10, 80, .5);
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  .join-card.panel > .join-card__ribbon { top: 24px; right: -54px; width: 190px; padding: 7px 0; font-size: 12px; }
+}
+.join-card.panel > .join-card__ribbon { font-size: 16px; padding: 10px 0; }
+@media (max-width: 768px) { .join-card.panel > .join-card__ribbon { font-size: 13px; padding: 8px 0; } }
+#step1:not([data-state="guest"]) > .join-card__ribbon { display: none; }

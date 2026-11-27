@@ -75,35 +75,55 @@
     onAction: null
   };
 
-  /* ---------- ④ 검토용 미리보기 도구 ---------- */
+  /* ---------- ④ 디자인 검토용 상태 미리보기 위젯 ----------
+     기본 노출. ?hidePreview=1 이면 숨김. 실서비스 배포 시 index.html의 #reviewTool 블록을 삭제하면 이 부분은 동작하지 않음. */
   var tool = document.getElementById('reviewTool');
-  var reviewOn = /[?&]review=1\b/.test(window.location.search);
+  var hidePreview = /[?&]hidePreview(=1)?/.test(window.location.search);
 
   function syncReview() {
-    if (!tool || tool.hidden) return;
+    if (!tool) return;
     var state = step1 ? step1.getAttribute('data-state') : '';
     Array.prototype.forEach.call(tool.querySelectorAll('[data-step1]'), function (b) {
       b.setAttribute('aria-pressed', String(b.getAttribute('data-step1') === state));
     });
-    var done = getMissionsDone().map(String);
+    var done = getMissionsDone().sort().map(String);
     Array.prototype.forEach.call(tool.querySelectorAll('[data-mission-toggle]'), function (b) {
       b.setAttribute('aria-pressed', String(done.indexOf(b.getAttribute('data-mission-toggle')) !== -1));
     });
+    var key = done.join(',');
+    Array.prototype.forEach.call(tool.querySelectorAll('[data-missions]'), function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-missions') === key));
+    });
   }
 
-  if (tool && reviewOn) {
-    tool.hidden = false;
+  if (tool && !hidePreview) {
     tool.addEventListener('click', function (e) {
-      var s = e.target.getAttribute('data-step1');
+      var t = e.target.closest ? e.target.closest('button') : e.target;
+      if (!t) return;
+      if (t.id === 'previewClose') { tool.parentNode.removeChild(tool); tool = null; return; }
+      var s = t.getAttribute('data-step1');
       if (s) { setStep1State(s); return; }
-      var m = e.target.getAttribute('data-mission-toggle');
+      var preset = t.getAttribute('data-missions');
+      if (preset !== null) { setMissionsDone(preset ? preset.split(',').map(Number) : []); return; }
+      var m = t.getAttribute('data-mission-toggle');
       if (m) {
-        var done = getMissionsDone();
-        var n = Number(m);
-        var i = done.indexOf(n);
+        var done = getMissionsDone(), n = Number(m), i = done.indexOf(n);
         if (i === -1) done.push(n); else done.splice(i, 1);
         setMissionsDone(done);
       }
+    });
+
+    // 미리보기 중에는 실제 버튼도 흐름대로 동작 (백엔드 onAction이 없을 때만)
+    //  - 'STEP 01 피카플레이 로그인하기' → 로그인 완료
+    //  - 'STEP 02 한게임포커 접속하고 미션 시작하기' (로그인 완료 상태에서) → 연동 완료 (링크는 새 창으로 그대로 열림)
+    document.addEventListener('click', function (e) {
+      if (!tool || typeof window.PokerEvent.onAction === 'function') return;
+      var btn = e.target.closest ? e.target.closest('[data-action]') : null;
+      if (!btn) return;
+      var action = btn.getAttribute('data-action');
+      var state = step1 ? step1.getAttribute('data-state') : '';
+      if (action === 'login' && state === 'guest') setStep1State('login');
+      else if (action === 'start' && state === 'login') setStep1State('linked');
     });
     syncReview();
   } else if (tool) {
